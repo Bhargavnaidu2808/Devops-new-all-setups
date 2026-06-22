@@ -5,11 +5,15 @@ source .bashrc
 dnf install -y libxcrypt-compat
 
 # Download the current stable release of Docker Compose
-sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+
 # Apply executable permissions
-sudo chmod 755 /usr/local/bin/docker-compose
+chmod +x /usr/local/bin/docker-compose
+
+docker-compose --version
+
 # Create a symbolic link
-sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
+ls -l /usr/local/bin/docker-compose 
 
 # Install using pip (Python package manager)
 sudo yum install -y python3-pip
